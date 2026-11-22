@@ -29,7 +29,8 @@ RUN apt-get update && \
         libboost-graph-dev \
         libboost-system-dev \
         libeigen3-dev \
-        libfreeimage-dev \
+        libopenimageio-dev \
+        openimageio-tools \
         libmetis-dev \
         libgoogle-glog-dev \
         libgtest-dev \
@@ -39,6 +40,7 @@ RUN apt-get update && \
         qt6-base-dev \
         libqt6opengl6-dev \
         libqt6openglwidgets6 \
+        qt6-svg-dev \
         libcgal-dev \
         libceres-dev \
         libcurl4-openssl-dev \
@@ -80,7 +82,7 @@ RUN apt-get update && \
         libopengl0 \
         libmetis5 \
         libceres4t64 \
-        libfreeimage3 \
+        libopenimageio2.4t64 \
         libgcc-s1 \
         libgl1 \
         libglew2.2 \
@@ -89,6 +91,7 @@ RUN apt-get update && \
         libqt6gui6 \
         libqt6widgets6 \
         libqt6openglwidgets6 \
+        libqt6svg6 \
         libcurl4 \
         libssl3t64 \
         libmkl-locale \
