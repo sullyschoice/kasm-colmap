@@ -47,6 +47,10 @@ RUN apt-get update && \
         libssl-dev \
         libmkl-full-dev
 
+# Ubuntu's OpenImageIO CMake config references /usr/include/opencv4 even when OpenCV
+# isn't installed (same workaround as upstream COLMAP's docker/Dockerfile).
+RUN mkdir -p /usr/include/opencv4
+
 # Build and install COLMAP.
 RUN git clone https://github.com/colmap/colmap.git
 RUN cd colmap && \
