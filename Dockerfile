@@ -4,6 +4,11 @@ ARG NVIDIA_CUDA_VERSION=12.9.1
 #
 # Docker builder stage.
 #
+# Kasm base image tag. Images built on 1.20+ bases do not run on Kasm 1.19 and older.
+#   1.19.0-rolling-daily -> Kasm 1.19 and older (default)
+#   develop              -> Kasm 1.20 (until a 1.20 rolling base tag is published)
+ARG BASE_TAG=1.19.0-rolling-daily
+
 FROM nvidia/cuda:${NVIDIA_CUDA_VERSION}-devel-ubuntu${UBUNTU_VERSION} AS builder
 
 ARG COLMAP_GIT_COMMIT=main
@@ -55,7 +60,7 @@ RUN cd colmap && \
     ninja install
 
 
-FROM kasmweb/core-ubuntu-noble:1.18.0-rolling-daily
+FROM kasmweb/core-ubuntu-noble:${BASE_TAG}
 USER root
 
 ENV HOME=/home/kasm-default-profile
